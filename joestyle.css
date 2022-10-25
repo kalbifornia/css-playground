@@ -146,6 +146,7 @@ div.search-header-letters a {
 div.header-by-letter {
   background-color: darkgray;
   color: white;
+  padding-left: var(--common-lr-padding);
 }
 
 div.objects-by-letter {
