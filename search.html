@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Holistic Health Directory: A geographic directory connecting people with quality holistic health resources">
+  <meta name="keywords" content="holistic,holistic health,healthy,software engineer,developer,web design,web developer,full-stack developer">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="joestyle.css">
+  <title>Holistic Health Directory</title>
+</head>
+<body>
+  <section class="content">
+    <header>
+      <div class="navbar">
+        <div class="navbar-top-section">
+          <div class="navbar-logo">
+            <span class="helper-vert-align"></span><a href="#"><img src="holistic-resources.png"> </img></a>
+          </div>
+          <div class="navbar-main-text">
+            <div class="navbar-title">Holistic Health Directory</div>
+            <div class="navbar-description">A geographic directory connecting people with quality holistic health resources.</div>
+          </div>
+        </div>
+        <div class="navbar-bottom-section">
+          <nav>
+            <ul>
+              <li><a class="navbar-link" id="a-view-map" href="#">View Map</a></li>
+              <li><a class="navbar-link" id="a-search-by-city" href="#">Search by City</a></li>
+              <li><a class="navbar-link" id="a-search-by-category" href="#">Search by Category</a></li>
+              <li><a class="navbar-link" id="a-by-resource" href="#">By Resource</a></li>
+              <li><a class="navbar-link" id="a-add-a-resource" href="#">Add a Resource</a></li>
+          </nav>
+        </div>
+      </div>
+      <div class="navbar-space-filler"></div>
+      <div class="search-header">
+        <div class="search-header-title">
+          <h1>Find Resources by Category</h1>
+        </div>
+        <div class="search-header-description">
+          <div class="search-header-description-main">Select a category to view a directory of resources by type.</div>
+          <div class="search-header-description-detail">Includes all resources by default. To view resources avaialble in a specific region, first selecct the city below.</div>
+        </div>
+        <div class="search-header-dropdown">
+          <select id="select-search-city">
+            <option selected disabled hidden>City</option>
+            <option>Columbus, OH</option>
+            <option>Naples, FL</option>
+            <option>Sarasota, FL</option>
+          </select>
+        </div>
+        <div class="search-header-letters">
+          <a href="#">A</a>
+          <a href="#">B</a>
+          <a href="#">C</a>
+          <a href="#">D</a>
+          <a href="#">E</a>
+          <a href="#">F</a>
+          <a href="#">G</a>
+          <a href="#">H</a>
+          <a href="#">I</a>
+          <a href="#">J</a>
+          <a href="#">K</a>
+          <a href="#">L</a>
+          <a href="#">M</a>
+          <a href="#">N</a>
+          <a href="#">O</a>
+          <a href="#">P</a>
+          <a href="#">Q</a>
+          <a href="#">R</a>
+          <a href="#">S</a>
+          <a href="#">T</a>
+          <a href="#">U</a>
+          <a href="#">V</a>
+          <a href="#">W</a>
+          <a href="#">X</a>
+          <a href="#">Y</a>
+          <a href="#">Z</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="groupings-by-letters">
+      <div class="grouping-by-letter">
+        <div class="header-by-letter">C</div>
+        <div class="objects-by-letter">
+          <button type="button" class="object-by-letter">
+            Cafes
+          </button>
+          <button type="button" class="object-by-letter">
+            Chiropractors
+          </button>
+          <button type="button" class="object-by-letter">
+            Co-operatives
+          </button>
+          <button type="button" class="object-by-letter">
+            Cold Plunges
+          </button>
+          <button type="button" class="object-by-letter">
+            Community Gardens
+          </button>
+          <button type="button" class="object-by-letter">
+            Cryotherapy Locations
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
