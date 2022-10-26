@@ -88,6 +88,11 @@ div.footer a,i {
   color: black;
 }
 
+div.footer-links {
+  line-height: var(--footer-height);
+  vertical-align: center;
+}
+
 div.footer-links a {
   font-weight: bold;
 }
@@ -187,6 +192,10 @@ div.search-header {
 
 div.search-header-title {
   padding-top: var(--common-tb-padding);
+  padding-bottom: var(--common-tb-padding);
+}
+
+div.search-header-subtitle {
   padding-bottom: var(--common-tb-padding);
 }
 
