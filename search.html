@@ -8,6 +8,7 @@
   <meta name="keywords" content="holistic,holistic health,healthy,software engineer,developer,web design,web developer,full-stack developer">
   <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css">
   <link rel="stylesheet" href="assets/fontawesome/css/brands.min.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/solid.min.css">
   <link rel="stylesheet" href="joestyle.css">
   <title>Holistic Health Directory</title>
 </head>
@@ -17,7 +18,10 @@
       <div class="navbar">
         <div class="navbar-top-section">
           <div class="navbar-logo">
-            <span class="helper-vert-align"></span><a href="#"><img src="holistic-resources.png"> </img></a>
+            <span class="helper-vert-align"></span>
+            <a href="#">
+              <i class="fa-solid fa-suitcase-medical fa-3x"></i>
+            </a>
           </div>
           <div class="navbar-main-text">
             <div class="navbar-title">Holistic Health Directory</div>
@@ -36,55 +40,56 @@
         </div>
       </div>
       <div class="navbar-space-filler"></div>
-      <div class="search-header">
-        <div class="search-header-title">
-          <h2>Find Resources by Category</h2>
-        </div>
-        <div class="search-header-subtitle">
-          <h3>City: Naples, FL</h3>
-        </div>
-        <div class="search-header-description">
-          <div class="search-header-description-main">Select a category to view a directory of resources by type.</div>
-          <div class="search-header-description-detail">Includes all resources by default. To view resources avaialble in a specific region, first select the city below.</div>
-        </div>
-        <div class="search-header-dropdown">
-          <select id="select-search-city">
-            <option selected disabled hidden>City</option>
-            <option>Columbus, OH</option>
-            <option>Naples, FL</option>
-            <option>Sarasota, FL</option>
-          </select>
-        </div>
-        <div class="search-header-letters">
-          <a href="#">A</a>
-          <a href="#">B</a>
-          <a href="#">C</a>
-          <a href="#">D</a>
-          <a href="#">E</a>
-          <a href="#">F</a>
-          <a href="#">G</a>
-          <a href="#">H</a>
-          <a href="#">I</a>
-          <a href="#">J</a>
-          <a href="#">K</a>
-          <a href="#">L</a>
-          <a href="#">M</a>
-          <a href="#">N</a>
-          <a href="#">O</a>
-          <a href="#">P</a>
-          <a href="#">Q</a>
-          <a href="#">R</a>
-          <a href="#">S</a>
-          <a href="#">T</a>
-          <a href="#">U</a>
-          <a href="#">V</a>
-          <a href="#">W</a>
-          <a href="#">X</a>
-          <a href="#">Y</a>
-          <a href="#">Z</a>
-        </div>
-      </div>
     </header>
+    <div class="search-header">
+      <div class="search-header-title">
+        <h2>Find Resources by Category</h2>
+      </div>
+      <div class="search-header-subtitle">
+        <h3>City: Naples, FL</h3>
+        <div class="search-subtitle-printable"><a href="#">View Printable Directory for Naples, FL</a></div>
+      </div>
+      <div class="search-header-description">
+        <div class="search-header-description-main">Select a category to view a directory of resources by type.</div>
+        <div class="search-header-description-detail">Includes all resources by default. To view resources avaialble in a specific region, first select the city below.</div>
+      </div>
+      <div class="search-header-dropdown">
+        <select id="select-search-city">
+          <option selected disabled hidden>City</option>
+          <option>Columbus, OH</option>
+          <option>Naples, FL</option>
+          <option>Sarasota, FL</option>
+        </select>
+      </div>
+      <div class="search-header-letters">
+        <a href="#">A</a>
+        <a href="#">B</a>
+        <a href="#">C</a>
+        <a href="#">D</a>
+        <a href="#">E</a>
+        <a href="#">F</a>
+        <a href="#">G</a>
+        <a href="#">H</a>
+        <a href="#">I</a>
+        <a href="#">J</a>
+        <a href="#">K</a>
+        <a href="#">L</a>
+        <a href="#">M</a>
+        <a href="#">N</a>
+        <a href="#">O</a>
+        <a href="#">P</a>
+        <a href="#">Q</a>
+        <a href="#">R</a>
+        <a href="#">S</a>
+        <a href="#">T</a>
+        <a href="#">U</a>
+        <a href="#">V</a>
+        <a href="#">W</a>
+        <a href="#">X</a>
+        <a href="#">Y</a>
+        <a href="#">Z</a>
+      </div>
+    </div>
 
     <div class="groupings-by-letters">
       <div class="grouping-by-letter">
@@ -125,21 +130,23 @@
         </div>
       </div>
     </div>
+    <footer>
+      <div class="footer">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <span class="footer-divider">|</span>
+          <a href="#">Get in Touch</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter fa-2x"></i></a>
+        </div>
+        <div class="footer-empty">
+        </div>
+      </div>
+      <div class="footer-space-filler"></div>
+    </footer>
   </section>
-  <footer>
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#">About</a>
-        <span class="footer-divider">|</span>
-        <a href="#">Get in Touch</a>
-      </div>
-      <div class="footer-social">
-        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter fa-2x"></i></a>
-      </div>
-      <div class="footer-empty">
-      </div>
-    </div>
-  </footer>
+
 </body>

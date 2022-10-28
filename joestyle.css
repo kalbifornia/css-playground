@@ -27,6 +27,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--body-font);
     font-size: var(--body-font-size);
@@ -64,10 +68,15 @@ div.navbar {
   height: var(--navbar-height);
   width: 100%;
   overflow: hidden;
+  z-index: 1000;
 }
 
 div.navbar-space-filler {
   height: var(--navbar-height);
+}
+
+div.footer-space-filler {
+  height: var(--footer-height);
 }
 
 div.footer {
@@ -111,7 +120,7 @@ div.footer-social a {
 div.navbar-top-section {
   height: var(--navbar-top-height);
   display: flex;
-  background-color: darkgray;
+  background-color: black;
   color: white;
 }
 
@@ -149,6 +158,11 @@ div.navbar-title {
 div.navbar-description {
   --vertical-align: middle;
   font-style: italic;
+}
+
+div.navbar-top-section i {
+  color: white;
+  vertical-align: middle;
 }
 
 div.navbar-bottom-section {
@@ -199,9 +213,17 @@ div.search-header-subtitle {
   padding-bottom: var(--common-tb-padding);
 }
 
+div.search-subtitle-printable {
+  padding-top: var(--common-tb-padding);
+}
+
 div.search-header-dropdown {
   padding-top: var(--common-tb-padding);
   padding-bottom: var(--common-tb-padding);
+}
+
+div.search-header-letters {
+  padding-top: var(--common-tb-padding);
 }
 
 div.search-header-letters a {
@@ -233,4 +255,8 @@ div.objects-by-letter {
   margin-right: var(--common-lr-margin);
   margin-top: var(--common-tb-margin);
   margin-bottom: var(--common-tb-margin);
+}
+
+a.jump_to_letter {
+  cursor: pointer;
 }
