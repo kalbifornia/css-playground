@@ -23,7 +23,7 @@
   bottom: 0;
 }
 
-#checkboxes {
+#cities-checkboxes {
   border: 1px #dadada solid;
   background-color: green;
   position: absolute;

@@ -7,6 +7,7 @@
   --common-tb-padding: 10px;
   --common-lr-margin: 10px;
   --common-tb-margin: 10px;
+  --multiselect-width: 300px;
   --navbarfootergray: lightgray;
   --h1-font-size: 28px;
   --h2-font-size: 24px;
@@ -220,7 +221,6 @@ div.search-subtitle-printable {
 div.search-header-dropdown {
   padding-top: var(--common-tb-padding);
   padding-bottom: var(--common-tb-padding);
-  max-height: 50px;
 }
 
 div.search-header-letters {
@@ -267,7 +267,7 @@ a.jump_to_letter {
 }
 
 .multiselect {
-  width: 200px;
+  width: var(--multiselect-width);
 }
 
 .selectBox {
@@ -276,7 +276,6 @@ a.jump_to_letter {
 
 .selectBox select {
   width: 100%;
-  font-weight: bold;
 }
 
 .overSelect {
@@ -287,18 +286,17 @@ a.jump_to_letter {
   bottom: 0;
 }
 
-#checkboxes {
+#cities-checkboxes {
   border: 1px #dadada solid;
   position: absolute;
-  width: 200px;
+  width: var(--multiselect-width);
   background-color: white;
-  z-index: 10;
 }
 
-#checkboxes label {
+#cities-checkboxes label {
   display: block;
 }
 
-#checkboxes label:hover {
-  background-color: #1e90ff;
+#cities-checkboxes label:hover {
+  background-color: blue;
 }

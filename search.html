@@ -56,29 +56,17 @@
         <div class="search-header-description-detail">Includes all resources by default. To view resources avaialble in a specific region, first select the city below.</div>
       </div>
       <div class="search-header-dropdown">
-        <!--<select id="select-search-city">
-          <option selected disabled hidden>City</option>
-          <option>Columbus, OH</option>
-          <option>Naples, FL</option>
-          <option>Sarasota, FL</option>
-        </select>-->
         <div class="multiselect">
-          <div class="selectBox" id="specificSelectBox">
+          <div class="selectBox" id="select-search-cities-select-box">
             <select>
-              <option>Select an option</option>
+              <option>City (All)</option>
             </select>
             <div class="overSelect"></div>
           </div>
-          <div id="checkboxes" class="invisible">
-            <label for="one">
-              <input type="checkbox" id="one" />First checkbox
-            </label>
-            <label for="two">
-              <input type="checkbox" id="two" />Second checkbox
-            </label>
-            <label for="three">
-              <input type="checkbox" id="three" />Third checkbox
-            </label>
+          <div id="cities-checkboxes" class="invisible">
+            <label for="checkbox-swfl"><input type="checkbox" id="checkbox-swfl" data-val="swfl"/>Naples, FL</label>
+            <label for="checkbox-sarasota"><input type="checkbox" id="checkbox-sarasota" data-val="sarasota"/>Sarasofta, FL</label>
+            <label for="checkbox-centralohio"><input type="checkbox" id="checkbox-centralohio" data-val="centralohio"/>Columbus, OH</label>
           </div>
         </div>
       </div>
@@ -170,26 +158,47 @@
     </footer>
   </section>
   <script>
-    var expanded = false;
+    var isCitiesDropdownExpanded = false;
+    var selectedCityShortNames = [];
+    selectedCityShortNames.push("swfl");
+    
+    function showCitiesDropdown() {
+      $('#cities-checkboxes').removeClass("invisible");
+      isCitiesDropdownExpanded = true;
+    }
 
-    $(document).ready(function() {
-      $('#specificSelectBox').click(function() {
-        showCheckboxes();
+    function hideCitiesDropdownAndRefreshIfNecessary() {
+      $('#cities-checkboxes').addClass("invisible");
+      isCitiesDropdownExpanded = false;
+      var prevSelectedCityShortNames = selectedCityShortNames;
+      selectedCityShortNames = [];
+      $('#cities-checkboxes input:checked').each(function() {
+        selectedCityShortNames.push($(this).attr("data-val"));
       });
-    });
-
-    function showCheckboxes() {
-      var checkboxes = $('#checkboxes');
-      if (!expanded) {
-        checkboxes.addClass("block");
-        checkboxes.removeClass("invisible");
-        expanded = true;
-      } else {
-        checkboxes.removeClass("block");
-        checkboxes.addClass("invisible");
-        expanded = false;
+      if (selectedCityShortNames.sort().toString() != prevSelectedCityShortNames.sort().toString()) {
+        //window.location.href="/holistic/search?type={{selectable_type}}&cities=" + selectedCityShortNames;
       }
     }
+
+    $(document).ready(function() {
+
+      $('body').click(function() {
+        hideCitiesDropdownAndRefreshIfNecessary();
+      });
+
+      $('#cities-checkboxes').click(function(e) {
+        e.stopPropagation();  //Stops the hiding of city dropdown (done in 'body' click function) if clicking inside of that div
+      });
+
+      $('#select-search-cities-select-box').click(function(e) {
+        if (isCitiesDropdownExpanded) {
+          hideCitiesDropdownAndRefreshIfNecessary();
+        } else {
+          showCitiesDropdown();
+        }
+        e.stopPropagation(); //Stops the automatic hiding of city dropdown (done in 'body' click function) if clicking inside of the select box
+      });
+    });
   </script>
 
 </body>
