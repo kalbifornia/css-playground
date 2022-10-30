@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="overflowstyle.css">
+    <script src="assets/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="this-should-be-over-top">
+      <div class="multiselect">
+        <div class="selectBox" id="specificSelectBox">
+          <select>
+            <option>If this is expanded, I want it to cover any content layered underneath it.</option>
+          </select>
+          <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes" class="invisible">
+          <label for="one"><input type="checkbox" id="one" />First checkbox</label>
+          <label for="two"><input type="checkbox" id="two" />Second checkbox</label>
+          <label for="three"><input type="checkbox" id="three" />Third checkbox</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="this-should-be-underneath">
+      This should get hidden when the dropdown expands (e.g. the dropdown should cover it up).
+    </div>
+    <script>
+    var expanded = false;
+
+    $(document).ready(function() {
+      $('#specificSelectBox').on('click',function() {
+        toggleShowCheckboxes();
+      });
+    });
+
+    function toggleShowCheckboxes() {
+      var checkboxes = $('#checkboxes');
+      if (!expanded) {
+        checkboxes.addClass("block");
+        checkboxes.removeClass("invisible");
+        expanded = true;
+      } else {
+        checkboxes.removeClass("block");
+        checkboxes.addClass("invisible");
+        expanded = false;
+      }
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+.invisible {
+  display: none;
+}
+
+.multiselect {
+  width: 500px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  border: 1px #dadada solid;
+  background-color: green;
+  position: absolute;
+  width: 100%;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#this-should-be-over-top {
+  height: 30px;
+  overflow-y: visible;
+  z-index: 100;
+}
+
+#this-should-be-underneath {
+  z-index: -100;
+}
