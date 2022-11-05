@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Holistic Health Directory: A geographic directory connecting people with quality holistic health resources">
+    <meta name="keywords" content="holistic,holistic health,healthy,software engineer,developer,web design,web developer,full-stack developer">
+
+    <script src="assets/jquery.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="joestyle.css">
+    <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' />
+    <title>Holistic Health Directory</title>
+  </head>
+  <body>
+    <section class="content">
+      <header>
+        <div class="navbar">
+          <div class="navbar-top-section">
+            <div class="navbar-logo">
+              <span class="helper-vert-align"></span>
+              <a href="#">
+                <i class="fa-solid fa-suitcase-medical fa-3x"></i>
+              </a>
+            </div>
+            <div class="navbar-main-text">
+              <div class="navbar-title">Holistic Health Directory</div>
+              <div class="navbar-description">A geographic directory connecting people with quality holistic health resources.</div>
+            </div>
+          </div>
+          <div class="navbar-bottom-section">
+            <nav>
+              <ul>
+                <li><a class="navbar-link" id="a-view-map" href="#">View Map</a></li>
+                <li><a class="navbar-link" id="a-search-by-city" href="#">Search by City</a></li>
+                <li><a class="navbar-link" id="a-search-by-category" href="#">Search by Category</a></li>
+                <li><a class="navbar-link" id="a-by-resource" href="#">Search By Resource</a></li>
+                <li><a class="navbar-link" id="a-add-a-resource" href="#">Add a Resource</a></li>
+            </nav>
+          </div>
+        </div>
+        <div class="navbar-space-filler"></div>
+      </header>
+      <div class="map-header">
+        <div class="map-title"><h1>Resource Map</h1></div>
+        <div class="map-subtitle">
+          <div class="map-subtitle-text">Select a resource to view more information.</div>
+          <div class="map-subtitle-dropdown">
+            <select id="select-map-city">
+              <option id="swfl" selected>Naples, FL</option>
+              <option id="centralohio">Columbus, OH</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="map-content">
+        <div id="area-map" class="actual-map">
+          <!-- Will be filled in by JavaScript -->
+        </div>
+        <div id="div-area-map-checkboxes" class="map-checkboxes">
+          <label for="input-scroll-zoom">Scroll Zoom</label>
+          <input id="input-scroll-zoom" type="checkbox" />
+        </div>
+      </div>
+      <div class="map-under">
+        <div class="resource-details">
+          <div class="resource-details-name"><h3>Rock Dove Farm</h3>
+          </div>
+          <div class="resource-details-field" id="resource-details-description">
+            <div class="resource-details-field-name">Description</div>
+            <div class="resource-details-field-value">
+              Rock Dove Farm is a small organic salad farm located just 20 miles west of Columbus, OH.
+            </div>
+          </div>
+          <div class="resource-details-field" id="resource-details-holistic-details">
+            <div class="resource-details-field-name">Holistic Details</div>
+            <div class="resource-details-field-value">
+              Rock Dove Farm grows greens organically.
+            </div>
+          </div>
+          <div class="resource-details-field" id="resource-details-website">
+            <div class="resource-details-field-name">Website</div>
+            <div class="resource-details-field-value">
+              <a href="https://rock-dove-farm.square.site/">https://rock-dove-farm.square.site/</a>
+            </div>
+          </div>
+          <div class="resource-details-field" id="resource-details-address">
+            <div class="resource-details-field-name">Address</div>
+            <div class="resource-details-field-value">
+              5319 SR 142 SE, West Jefferson, OH 43162
+            </div>
+          </div>
+          <div class="resource-details-field" id="resource-details-phone">
+            <div class="resource-details-field-name">Phone</div>
+            <div class="resource-details-field-value">
+              614-738-1050
+            </div>
+          </div>
+          <div class="resource-details-field" id="resource-details-tags">
+            <div class="resource-details-field-name">Tags</div>
+            <div class="resource-details-field-value">
+              <a href="/holistic/search?type=resource&cities=swfl&categories=farm">Farm</a>,
+              <a href="/holistic/search?type=resource&cities=swfl&categories=organic_produce">Organic Produce</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resource-details-modal" class="modal invisible">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <div class="modal-content-main">
+            <div class="modal-resource-header" id="modal-resource-name"><h2>Alday Farm</h2></div>
+            <div class="modal-resource-field" id="modal-resource-field-description">
+              <div class="modal-resource-field-name">Description</div>
+              <div class="modal-resource-field-value">Alday Farm raises cattle and goats, producing pastured 100% grass-fed raw cow milk. It also produces raw A2/A2 goat milk (fed organic grain but no corn, soy, wheat, or barley, so it is gluten-free as well). They also have free choice non-GMO alfalfa and also eat non-GMO Lespedeza grass pellets which is a natural dewormer. This farm offers butter, cream, and other dairy. Their products are sold at various stores (their site shares vendor locations)</div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-field-holistic-details">
+              <div class="modal-resource-field-name">Holistic Details</div>
+              <div class="modal-resource-field-value">Alday Farm raises cattle and goats, producing pastured 100% grass-fed raw cow milk. It also produces raw A2/A2 goat milk.</div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-website">
+              <div class="modal-resource-field-name">Website</div>
+              <div class="modal-resource-field-value"><a href="http://www.aldayfarm.com">http://www.aldayfarm.com</a></div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-field-address">
+              <div class="modal-resource-field-name">Address</div>
+              <div class="modal-resource-field-value">7304 Redge Rainey Rd, Ona, FL 33865</div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-field-phone">
+              <div class="modal-resource-field-name">Phone Number</div>
+              <div class="modal-resource-field-value">N/A</div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-field-tags">
+              <div class="modal-resource-field-name">Tags</div>
+              <div class="modal-resource-field-value"><a href="/holistic/tag/farm?cities=swfl">Farm</a>, <a href="/holistic/tag/raw_dairy?cities=swfl">Raw Dairy</a></div>
+            </div>
+            <div class="modal-resource-field" id="modal-resource-field-cities">
+              <div class="modal-resource-field-name">Cities</div>
+              <div class="modal-resource-field-value"><a href="/holistic/area/sarasota">Sarasota, FL</a>, <a href="/holistic/area/swfl">Naples, FL</a></div>
+            </div>
+          </div>
+      </div>
+
+      <footer>
+        <div class="footer">
+          <div class="footer-links">
+            <a href="#">About</a>
+            <span class="footer-divider">|</span>
+            <a href="#">Get in Touch</a>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook fa"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram fa"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter fa"></i></a>
+          </div>
+          <div class="footer-empty">
+          </div>
+        </div>
+        <div class="footer-space-filler"></div>
+      </footer>
+    </section>
+
+    <script>
+      // The value for 'accessToken' begins with 'pk...'
+      mapboxgl.accessToken = 'pk.eyJ1Ijoia2FsYmlmb3JuaWEiLCJhIjoiY2w1MXBoczRkMDRjazNjbjlhandjZ3ZpciJ9.mjBOUTv1mm-zgQ2rvUlRvQ';
+      var centerCoordinates = [-83.007,39.9623];
+      //var geoJsonData = {{geo_json_data|safe}};
+      //var tagsMapData = {{tags_map_data|safe}};
+      var allMapMarkers = [];
+
+      const map = new mapboxgl.Map({
+        container: 'area-map',
+        // Replace YOUR_STYLE_URL with your style URL.
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: centerCoordinates,
+        zoom: 6.5
+      });
+
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+      // disable map zoom when using scroll
+      map.scrollZoom.disable();
+
+      $("#input-scroll-zoom").click(function() {
+        $("#resource-details-modal").toggleClass("invisible");
+      });
+
+      $("#resource-details-modal .modal-close").click(function() {
+        $("#resource-details-modal").addClass("invisible");
+      });
+
+      $(".modal").click(function() {
+        $("#resource-details-modal").addClass("invisible");
+      });
+    </script>
+  </body>
+</html>
